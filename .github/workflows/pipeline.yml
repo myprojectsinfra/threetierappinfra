@@ -2,7 +2,7 @@
 name: "Ankit Kumar GitHub"
 
 on:
-  
+  workflow_dispatch:
   push:
     branches:
       - 'feature/**'
