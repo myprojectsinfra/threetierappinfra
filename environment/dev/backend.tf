@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
     resource_group_name  = "mybackendrg"
-    storage_account_name = "mybackendstoreacc"
+    storage_account_name = "mybackstoreaccnt"
     container_name       = "myblobcontainer"
-    key                  = "todoapp.tfstate"
+    key                  = "threetierapp.tfstate"
   }
 }
