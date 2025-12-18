@@ -21,7 +21,7 @@ permissions:
 jobs:
   terraformInit:
     name: Terraform Init
-    runs-on: [self-hosted, Ankit-Kumar]
+    runs-on: [self-hosted, Ankit-ThreeTier]
 
     steps:
     - name: Checkout repo
