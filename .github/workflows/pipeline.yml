@@ -51,8 +51,9 @@ jobs:
       
     - name: TFLint
       id: tflint
-      run: tflint
-      working-directory: .
+      run: |
+            tflint --init
+            tflint --recursive .
 
     - name: Trivy IaC Scan
       id: trivy
@@ -68,3 +69,9 @@ jobs:
       continue-on-error: true
       run: terraform plan -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}"
       working-directory: ${{ env.TF_DIR }}  # Set the working directory for plan
+      
+    - name: Terraform Apply (main branch only)
+      id: apply
+      if: github.ref == 'refs/heads/main' && steps.plan.outcome == 'success'
+      run: terraform apply -auto-approve -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+      working-directory: ${{ env.TF_DIR }}
