@@ -2,7 +2,7 @@ resource "azurerm_linux_virtual_machine" "ankit_linux_vm" {
   name                            = var.vm_name
   resource_group_name             = var.resource_group_name
   location                        = var.virtual_machine_location
-  size                            = "Standard_B1s"
+  size                            = "Standard_D2s_v3"
   admin_username                  = var.admin_username
   admin_password                  = var.admin_password
   disable_password_authentication = false
