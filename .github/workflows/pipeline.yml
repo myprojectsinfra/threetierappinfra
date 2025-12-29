@@ -53,7 +53,7 @@ jobs:
       id: tflint
       run: |
             tflint --init
-            tflint --recursive .
+            tflint --recursive
 
     - name: Trivy IaC Scan
       id: trivy
